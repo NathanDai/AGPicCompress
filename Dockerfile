@@ -14,3 +14,12 @@ RUN apt install pngquant -y
 COPY . /app
 
 RUN ls /app && pip install -r requirements.txt
+
+# 暴露端口
+EXPOSE 8089
+
+# 设置时区环境变量
+ENV TZ=Asia/Shanghai
+
+# 启动 Python 服务器
+CMD ["python", "backend/main.py"]
